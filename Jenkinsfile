@@ -18,8 +18,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                echo 'Memeriksa aplikasi...'
-                bat 'python --version'
+                echo 'Memeriksa Docker...'
                 bat 'docker --version'
             }
         }
