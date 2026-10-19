@@ -37,7 +37,7 @@ pipeline {
         stage('Deploy App + Database') {
             steps {
                 echo 'Menjalankan aplikasi dan database...'
-                bat 'docker compose up -d --build'
+                bat 'docker-compose up -d --build'
                 bat 'ping -n 21 127.0.0.1 > nul'
             }
         }
