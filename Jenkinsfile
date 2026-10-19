@@ -32,6 +32,22 @@ pipeline {
             }
         }
 
+        stage('Deploy App + Database') {
+            steps {
+                echo 'Menjalankan aplikasi dan database...'
+                bat 'docker compose up -d --build'
+                bat 'ping -n 21 127.0.0.1 > nul'
+            }
+        }
+
+        stage('Verify') {
+            steps {
+                echo 'Memeriksa aplikasi Flask...'
+                bat 'curl --fail --silent --show-error http://localhost:5000/'
+                bat 'curl --fail --silent --show-error http://localhost:5000/db'
+            }
+        }
+
         stage('Push Docker Image') {
             steps {
                 echo 'Mengirim image ke Docker Hub...'
