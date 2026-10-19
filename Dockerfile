@@ -1,3 +1,4 @@
+
 # Gunakan image base Python
 FROM python:3.10-slim
 
@@ -13,7 +14,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy seluruh file project ke /app
 COPY . .
 
-# Expose port untuk Flask / FastAPI
+# Expose port untuk Flask
 EXPOSE 5000
 
 # Jalankan aplikasi

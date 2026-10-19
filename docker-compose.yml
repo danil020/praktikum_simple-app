@@ -1,0 +1,29 @@
+
+services:
+  app:
+    build: .
+    image: nielldd/simple-app:latest
+    container_name: simple-app
+    ports:
+      - "5000:5000"
+    environment:
+      DB_HOST: db
+      DB_PASSWORD: rootpraktikum123
+      DB_NAME: simple_app
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    container_name: simple-app-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpraktikum123
+      MYSQL_DATABASE: simple_app
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
