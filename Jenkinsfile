@@ -18,8 +18,10 @@ pipeline {
 
         stage('Build') {
             steps {
-                echo 'Memeriksa Docker...'
+                echo 'Memeriksa Docker dan Docker Compose...'
                 bat 'docker --version'
+                bat 'docker compose version'
+                bat 'docker-compose version'
             }
         }
 
