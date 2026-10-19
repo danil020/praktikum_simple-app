@@ -3,7 +3,6 @@ services:
   app:
     build: .
     image: nielldd/simple-app:latest
-    container_name: simple-app
     ports:
       - "5000:5000"
     environment:
@@ -15,7 +14,6 @@ services:
 
   db:
     image: mysql:8.0
-    container_name: simple-app-db
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: rootpraktikum123
