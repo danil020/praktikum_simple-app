@@ -20,7 +20,7 @@ pipeline {
             steps {
                 echo 'Memeriksa Docker dan Docker Compose...'
                 bat 'docker --version'
-                bat 'docker compose version'
+                bat 'where docker-compose'
                 bat 'docker-compose version'
             }
         }
